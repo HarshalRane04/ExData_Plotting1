@@ -9,7 +9,7 @@ powerData <- data.table::fread(input = "household_power_consumption.txt"
 
 powerData[, Global_active_power := lapply(.SD, as.numeric), .SDcols = c("Global_active_power")]
 
-# Making a POSIXct date capable of being filtered and graphed by time of day
+
 powerData[, dateTime := as.POSIXct(paste(Date, Time), format = "%d/%m/%Y %H:%M:%S")]
 
 # Filter Dates 
